@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    {% comment %} {% extends 'index.html' %} {% endcomment %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+		<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+			<div class="container-fluid">
+			  <a class="navbar-brand" href="{% url 'home' %}">MOVIEBAZZAR</a>
+			  {% comment %} <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button> {% endcomment %}
+			  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+				  <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+				  <a class="nav-link" href="{% url 'about' %}">About Us</a>
+				  <a class="nav-link" href="{% url 'signup' %}">signup</a>
+				  {% comment %} <a class="nav-link disabled">Disabled</a> {% endcomment %}
+				
+				</div>
+			  </div>
+			</div>
+		  </nav>
+				
+		  
+
+
+
+			 
+    </head>
+    <body style = "background-image: url('{% static "images/img5.jpg" %}');">
+
+      {% block content %}
+
+	  <center>
+		<h1> Login Page </h1>
+		<br>
+		{{ error }}<br>
+		<form method = 'POST' action={% url 'login' %}>
+		{% csrf_token %}
+
+	  <form>
+		<div class="mb-3">
+		  <label for="exampleInputEmail1" class="form-label">Email address</label>
+		  <input type='text' class="form-control-sm" name = "username">
+		  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+		</div>
+		<div class="mb-3">
+		  <label for="exampleInputPassword1" class="form-label">Password</label>
+		  <input type='password' class="form-control-sm"  name = "password1">
+		</div>
+		<div class="mb-3 form-check">
+		  <input type="checkbox" class="form-check-small" id="exampleCheck1">
+		  <label class="form-check-inline" for="exampleCheck1">Remember me</label>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	  </form>
+		
+		
+		</center>
+        
+
+        {% endblock %}
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>
